@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'cat "Hello from Pipeline" > test.txt'
+                sh 'echo "Hello World from Jenkins Pipeline"'
             }
         }
     }
