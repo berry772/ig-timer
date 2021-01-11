@@ -30,34 +30,41 @@
         <ion-item>
           <ion-label position="floating">mmss</ion-label>
           <ion-input
-          id="input"
+            id="input"
             type="number"
           ></ion-input>
         </ion-item>
         <ion-button
-        id="btn-start"
+          id="btn-start"
           expand="block"
           fill="outline"
-          (click)="timerStart(inputSec.value)"
-          *ngIf="!isRunning"
         >
           <ion-icon name="stopwatch-outline" slot="start"></ion-icon>
           start
         </ion-button>
         <ion-button
-        id="btn-pause"
+          id="btn-pause"
           expand="block"
           fill="outline"
         >
-          <ion-icon name="pause-outline" slot="start"></ion-icon>pause
+          <ion-icon name="pause-outline" slot="start"></ion-icon>
+          pause
         </ion-button>
         <ion-button
-        id="btn-cont"
+          id="btn-cont"
           expand="block"
           fill="outline"
         >
-          <ion-icon name="play-outline" slot="start"></ion-icon>continue
+          <ion-icon name="play-outline" slot="start"></ion-icon>
+          continue
         </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row id="preset">
+      <ion-col size-md="6" offset-md="3">
+        <ion-button data-time="300">3 min</ion-button>
+        <ion-button data-time="500">5 min</ion-button>
+        <ion-button data-time="1000">10 min</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
