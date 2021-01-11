@@ -3,6 +3,7 @@ ip = document.querySelector('#input');
 bs = document.querySelector('#btn-start');
 bp = document.querySelector('#btn-pause');
 bc = document.querySelector('#btn-cont');
+preset = document.querySelector('#preset');
 
 timer = null;
 clearInterval(timer);
@@ -14,6 +15,9 @@ ts.innerHTML = '00:00';
 bs.style.display = '';
 bp.style.display = 'none';
 bc.style.display = 'none';
+preset.style.display = '';
+
+let isRunning = false;
 
 document.addEventListener(
   'click',
@@ -24,6 +28,8 @@ document.addEventListener(
       timerPause();
     } else if (e.target === bc) {
       timerStart(tempSec);
+    } else if (e.target.dataset.time > 0) {
+      timerStart(e.target.dataset.time)
     }
   },
   false
@@ -44,6 +50,7 @@ function timerStart(t) {
   bs.style.display = 'none';
   bp.style.display = '';
   bc.style.display = 'none';
+  preset.style.display = 'none';
 };
 
 function timerRepeat() {
@@ -59,9 +66,10 @@ function timerRepeat() {
 function timerStop() {
   clearInterval(timer);
   ts.innerHTML = '00:00 Done';
-bs.style.display = '';
-bp.style.display = 'none';
-bc.style.display = 'none';
+  bs.style.display = '';
+  bp.style.display = 'none';
+  bc.style.display = 'none';
+  preset.style.display = '';
   setTimeout(() => {
     alert('done');
   }, 100)
@@ -74,6 +82,7 @@ function timerPause() {
   bs.style.display = '';
   bp.style.display = 'none';
   bc.style.display = '';
+  preset.style.display = '';
 };
 
 function setTargetTime(t) {
